@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
 import Navbar from "./Components/Navbar.jsx";
+import Card from "./Components/Card.jsx";
 
 const App = () => {
   return (
     <>
       <Navbar />
+      Temp: Home!
       <div>
-        <h1 className="text-3xl">Hello from the home page of the shop!</h1>
-        <p>Here are some links to other pages</p>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/shop">Home Page</Link>
-            </li>
-          </ul>
-        </nav>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
     </>
   )
