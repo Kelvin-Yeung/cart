@@ -1,5 +1,10 @@
-
+import Navbar from "/src/Components/Navbar.jsx";
 
 export default function About() {
-  return <h1>About</h1>
+  return (
+    <>
+      <Navbar />
+      <h1>About</h1>
+    </>
+  )
 }
