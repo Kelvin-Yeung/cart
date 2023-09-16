@@ -8,14 +8,13 @@ async function getTopGames() {
   try {
     const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
     const response = await fetch(
-      //`https://api.rawg.io/api/games?key=${API_KEY}&page_size=3`,
+      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=3`,
     );
     if (!response.ok) {
       throw new Error(`There is an HTTP error: ${response.status}`);
     }
     let data = await response.json();
-    console.log(data);
-    console.log("API CALLED AT getTopGames()");
+    console.log("API CALLED AT getTopGames()", data);
     return data;
   } catch (err) {
     console.error(`ERROR: ${err}`);
@@ -65,12 +64,15 @@ export default function Shop() {
     setCart([...cart, item]);
   }
 
+  function removeFromCart(title) {
+    setCart(cart.filter(item => item.title !== title));
+  }
   return (
     <>
       <Navbar />
       <div className="flex">
         <Sidebar setResults={setResults} />
-        <Games games={results} addToCart={addToCart} />
+        <Games games={results} addToCart={addToCart} removeFromCart={removeFromCart} />
       </div>
       <button onClick={() => setIsCartOpen(true)}>Open Cart</button>
       {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} cart={cart} />}

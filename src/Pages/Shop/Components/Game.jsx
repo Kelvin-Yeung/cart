@@ -1,7 +1,13 @@
 import { useState } from "react";
 
-export default function Game({ title, img, price, addToCart }) {
+export default function Game({ title, img, price, addToCart, removeFromCart }) {
   const [added, setAdded] = useState(false);
+  const obj = {
+    title: title,
+    img: img,
+    price: price
+  }
+
   return (
     <div className="max-w-sm rounded-3xl bg-[#202020]">
       <img src={img} className="rounded-t-3xl"></img>
@@ -10,7 +16,7 @@ export default function Game({ title, img, price, addToCart }) {
           <button
             onClick={() => {
               setAdded(true);
-              addToCart(price);
+              addToCart(obj);
             }}
             className="w-full rounded-full border"
           >
@@ -18,13 +24,16 @@ export default function Game({ title, img, price, addToCart }) {
           </button>
         ) : (
           <button
-            onClick={() => setAdded(false)}
+            onClick={() => {
+              setAdded(false)
+              removeFromCart(title)
+            }}
             className="w-full rounded-full border text-green-500"
           >
             Added
           </button>
         )}
-        <div className="flex justify-between">${price.toFixed(2)}</div>
+        <div className="flex justify-between">${price}</div>
         {title}
       </div>
     </div>
