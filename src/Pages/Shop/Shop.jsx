@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import Navbar from "/src/Components/Navbar.jsx";
+import Navbar from "./Components/Navbar.jsx";
 import Games from "./Components/Games.jsx";
 import Sidebar from "./Components/Genres.jsx";
 import Cart from "./Components/Cart.jsx";
@@ -31,12 +31,27 @@ async function getTopGames() {
 }
 
 export default function Shop() {
+  
+  
   // RAWG API states all list of games as results
   
   const [results, setResults] = useState([]); // Shows all the items on the screen
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   
+  
+
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isCartOpen]);
 
   useEffect(() => {
     getTopGames().then((data) => {
@@ -60,14 +75,14 @@ export default function Shop() {
   return (
     <>
       <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
-        <Navbar />
+        <Navbar setIsCartOpen={setIsCartOpen} />
         <div className="flex">
           <Sidebar setResults={setResults} />
           <Games games={results}/>
         </div>
-        <button onClick={() => setIsCartOpen(true)}>Open Cart</button>
         
-        {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} cart={cart} total={findTotal()} />}
+        
+        {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} cart={cart} total={findTotal()} setCart={setCart} />}
         {isCartOpen && (
           <div className="fixed left-0 top-0 z-10 h-screen w-screen bg-black opacity-50"></div>
         )}

@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import Navbar from "./Components/Navbar.jsx";
 import Card from "./Components/Card.jsx";
 
 const App = () => {
   return (
     <>
-      <Navbar />
       Temp: Home!
       <div>
         <Card />

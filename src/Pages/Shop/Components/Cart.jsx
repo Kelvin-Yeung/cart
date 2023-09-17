@@ -1,30 +1,34 @@
-import CartItem from './CartItem.jsx'
+import CartItem from "./CartItem.jsx";
 
-export default function Cart({ setIsCartOpen, cart, total }) {
+export default function Cart({ setIsCartOpen, cart, total, setCart }) {
   return (
-    <div className={`fixed right-0 top-0 z-20 h-screen w-1/4 bg-[#202020]`}>
-      <div className="flex justify-between m-4">
-        Cart
-        <button
-          onClick={() => setIsCartOpen(false)}
-        >
-          Close Cart
-        </button>
+    <>
+      <div
+        className="fixed left-0 top-0 z-20 h-screen w-[72%]"
+        onClick={() => setIsCartOpen(false)}
+      ></div>
+      <div
+        className={`fixed right-0 top-0 z-20 flex h-screen w-[28%] flex-col justify-between overflow-auto bg-[#202020]`}
+      >
+        <div className="flex flex-col">
+          <div className="m-6 flex justify-between font-bold text-lg">
+            <p>{cart.length} Games Added</p>
+            <button onClick={() => setCart([])}>Clear</button>
+          </div>
+          {cart.map((item) => (
+            <CartItem
+              key={item.title}
+              title={item.title}
+              img={item.img}
+              price={item.price}
+            />
+          ))}
+        </div>
+        <div className="m-6 flex justify-between font-bold text-lg">
+          <p>Subtotal: ${total}</p>
+          <button>Checkout</button>
+        </div>
       </div>
-      
-
-
-      {cart.length === 0 ?
-      ("Empty")
-    : 
-
-    (cart.map((item) => (
-      <CartItem key={item.title} title={item.title} img={item.img} price={item.price}
-      />
-    )))
-    }
-      
-      <p>${total}</p>
-    </div>
+    </>
   );
 }
