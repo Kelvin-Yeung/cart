@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from './App.jsx'
 import Shop from './Pages/Shop/Shop.jsx'
+import About from './Pages/About/About.jsx'
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
   {
     path: "/shop",
     element: <Shop />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
 ];
 

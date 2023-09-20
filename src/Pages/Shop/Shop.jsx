@@ -33,13 +33,12 @@ async function getTopGames() {
 export default function Shop() {
   
   
-  // RAWG API states all list of games as results
+  // RAWG API states all list of games as results (change name to gameDisplayed or similar)
   
   const [results, setResults] = useState([]); // Shows all the items on the screen
   const [cart, setCart] = useState([]);
+  const [genre, setGenre] = useState("Top 10");
   const [isCartOpen, setIsCartOpen] = useState(false);
-  
-  
 
   useEffect(() => {
     if (isCartOpen) {
@@ -77,8 +76,11 @@ export default function Shop() {
       <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
         <Navbar setIsCartOpen={setIsCartOpen} />
         <div className="flex">
-          <Sidebar setResults={setResults} />
-          <Games games={results}/>
+          <Sidebar setResults={setResults} setGenre={setGenre} />
+          <div className="m-12 flex flex-col">
+            <h1 className="mb-8 font-bold text-5xl">{genre}</h1>
+            <Games games={results}/>
+          </div>
         </div>
         
         

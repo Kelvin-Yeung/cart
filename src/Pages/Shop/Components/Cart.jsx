@@ -26,7 +26,6 @@ export default function Cart({ setIsCartOpen, cart, total, setCart }) {
         </div>
         <div className="m-6 flex justify-between font-bold text-lg">
           <p>Subtotal: ${total}</p>
-          <button>Checkout</button>
         </div>
       </div>
     </>

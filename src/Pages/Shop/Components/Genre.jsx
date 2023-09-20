@@ -1,4 +1,8 @@
-export default function Genre({ genre, setResults }) {
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export default function Genre({ genre, setResults, setGenre }) {
   async function getNewGenre(genre) {
     try {
       const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
@@ -18,16 +22,18 @@ export default function Genre({ genre, setResults }) {
       }
     }
   }
+  const genreCapitalized = capitalizeFirstLetter(genre)
   return (
     <button
       onClick={() => {
         getNewGenre(genre).then((data) => {
           setResults(data.results);
+          setGenre(genreCapitalized);
           console.log("This is the data", data.results);
         });
       }}
     >
-      <div>{genre}</div>
+      <div>{genreCapitalized}</div>
     </button>
   );
 }
