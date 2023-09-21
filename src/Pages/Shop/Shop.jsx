@@ -14,7 +14,7 @@ async function getTopGames() {
   try {
     const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
     const response = await fetch(
-      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=39`, { mode: "no-cors" }
+      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=39`, { mode: "cors" }
     );
     if (!response.ok) {
       throw new Error(`There is an HTTP error: ${response.status}`);
