@@ -15,28 +15,28 @@ export default function Game({ title, img, price }) {
       
       <img src={img} alt="" className="rounded-t-3xl object-cover" style={{ aspectRatio: '1.7777 / 1' }}></img>
       
-      <div className="flex flex-col gap-2 p-4">
+      <div className="flex flex-col gap-1 p-4">
         {!isInCart ? (
           <button
             onClick={() => {
               addToCart(obj);
             }}
-            className="w-full rounded-full border mb-1"
+            className="w-full rounded-full border mb-2"
           >
-            Add to Cart
+            <span className="text-sm">Add to Cart</span>
           </button>
         ) : (
           <button
             onClick={() => {
               removeFromCart(title);
             }}
-            className="w-full rounded-full border mb-1 text-green-500"
+            className="w-full rounded-full border mb-2 text-green-500"
           >
-            Added
+            <span className="text-sm">Added</span>
           </button>
         )}
-        {title}
-        <div className="flex justify-between">${price}</div>
+        <span className="font-semibold">{title}</span>
+        <div className="flex justify-between text-[#a0a0a0] text-sm">${price}</div>
           </div>
     </div>
   );

@@ -2,12 +2,12 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export default function Genre({ genre, setResults, setGenre }) {
+export default function Genre({ img, genre, setResults, setGenre }) {
   async function getNewGenre(genre) {
     try {
       const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
       const response = await fetch(
-        `https://api.rawg.io/api/games?key=${API_KEY}&genres=${genre}&page_size=10`, { mode: "cors" }
+        `https://api.rawg.io/api/games?key=${API_KEY}&genres=${genre}&page_size=39`, { mode: "cors" }
       );
       if (!response.ok) {
         throw new Error(`There is an HTTP error: ${response.status}`);
@@ -33,7 +33,10 @@ export default function Genre({ genre, setResults, setGenre }) {
         });
       }}
     >
-      <div>{genreCapitalized}</div>
+      <div className="flex gap-3 items-center my-1">
+      <object data={img} width="38" height="38" className="bg-[#202020] rounded-lg p-2"></object>
+      <div className="text-sm">{genreCapitalized}</div>
+      </div>
     </button>
   );
 }

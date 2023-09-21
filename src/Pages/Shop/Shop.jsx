@@ -14,7 +14,7 @@ async function getTopGames() {
   try {
     const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
     const response = await fetch(
-      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=3`, { mode: "cors" }
+      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=39`, { mode: "cors" }
     );
     if (!response.ok) {
       throw new Error(`There is an HTTP error: ${response.status}`);
@@ -37,7 +37,7 @@ export default function Shop() {
   
   const [results, setResults] = useState([]); // Shows all the items on the screen
   const [cart, setCart] = useState([]);
-  const [genre, setGenre] = useState("Top 10");
+  const [genre, setGenre] = useState("Top Games");
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ export default function Shop() {
         <Navbar setIsCartOpen={setIsCartOpen} />
         <div className="flex">
           <Sidebar setResults={setResults} setGenre={setGenre} />
-          <div className="m-12 flex flex-col">
+          <div className="m-10 flex flex-col">
             <h1 className="mb-8 font-bold text-5xl">{genre}</h1>
             <Games games={results}/>
           </div>

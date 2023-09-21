@@ -2,20 +2,19 @@ import { Link } from "react-router-dom";
 
 export default function Navbar({ setIsCartOpen }) {
   return (
-    <nav className="h-16 flex justify-between border-2 border-slate-500 sticky top-0">
-      <div className="flex gap-2 items-center">
-        <img src="gamepad.svg" alt="CHANGE" className="w-full h-full"/>
-        <span>Title</span>
+    <nav className="h-20 flex justify-between items-center sticky top-0 m-2 bg-[#0F1011]">
+      <div className="flex gap-1 items-center ml-4">
+        <img src="gamepad.svg" alt="CHANGE" className="w-[42px] h-[42px]"/>
+        <span className="text-3xl font-serif">GGateway</span>
       </div>
-      SEARCH
       <div>
-        <ul className="flex gap-8">
-          <button onClick={() => setIsCartOpen(true)}>
-            <img src="cart.svg" alt="Something" className="h-8 w-8" />
-          </button>
-          <div className="border border-transparent rounded-full bg-red-600 flex justify-center items-center w-2 h-2 absolute top-1 right-1"></div>
-        </ul>
+        <input placeholder="To be implemented..." className="py-1 pl-4 rounded-lg w-80" />
       </div>
+      <button onClick={() => setIsCartOpen(true)} className="mr-5">
+        <img src="cart.svg" alt="Something" className="h-8 w-8" />
+      </button>
     </nav>
   )
 };
+
+// <div className="border border-transparent rounded-full bg-red-600 flex justify-center items-center w-2 h-2 absolute top-1 right-1"></div>
