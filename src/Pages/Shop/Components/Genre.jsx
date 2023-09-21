@@ -7,7 +7,7 @@ export default function Genre({ img, genre, setResults, setGenre }) {
     try {
       const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
       const response = await fetch(
-        `https://api.rawg.io/api/games?key=${API_KEY}&genres=${genre}&page_size=39`, { mode: "cors" }
+        `https://api.rawg.io/api/games?key=${API_KEY}&genres=${genre}&page_size=39`
       );
       if (!response.ok) {
         throw new Error(`There is an HTTP error: ${response.status}`);
@@ -16,7 +16,7 @@ export default function Genre({ img, genre, setResults, setGenre }) {
       console.log("API CALLED AT getNewGenre()", data);
       return data;
     } catch (err) {
-      console.err(`ERROR: ${err}`);
+      console.error(`ERROR: ${err}`);
       {
         /* Change to alert after! */
       }
