@@ -8,7 +8,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "dev": "vite",
-    "dev:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "start": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
