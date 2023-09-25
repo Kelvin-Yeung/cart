@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from '../Shop.jsx'
 
-
-
 export default function CartItem({ title, img, price }) {
   const { removeFromCart } = useContext(CartContext);
   return (

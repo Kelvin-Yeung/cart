@@ -31,13 +31,10 @@ async function getTopGames() {
 }
 
 export default function Shop() {
-  
-  
   // RAWG API states all list of games as results (change name to gameDisplayed or similar)
-  
   const [results, setResults] = useState([]); // Shows all the items on the screen
   const [cart, setCart] = useState([]);
-  const [genre, setGenre] = useState("Top Games");
+  const [genre, setGenre] = useState("Best of All Time");
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
@@ -82,8 +79,6 @@ export default function Shop() {
             <Games games={results}/>
           </div>
         </div>
-        
-        
         {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} cart={cart} total={findTotal()} setCart={setCart} />}
         {isCartOpen && (
           <div className="fixed left-0 top-0 z-10 h-screen w-screen bg-black opacity-50"></div>

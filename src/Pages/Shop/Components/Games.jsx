@@ -3,7 +3,7 @@ import Game from "./Game";
 export default function Games({ games }) {
   return (
     <div
-      className="grid grid-cols-3 gap-6"
+      className="grid grid-cols-3 gap-8"
       style={{ height: "fit-content" }}
     >
       {games.map((item) => (
