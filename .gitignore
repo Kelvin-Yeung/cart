@@ -25,7 +25,3 @@ dist-ssr
 
 # Miscellaneous
 .env
-.vercel
-
-# Local Netlify folder
-.netlify
