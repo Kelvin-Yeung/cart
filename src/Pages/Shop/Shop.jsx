@@ -74,8 +74,8 @@ export default function Shop() {
         <Navbar setIsCartOpen={setIsCartOpen} />
         <div className="flex">
           <Sidebar setResults={setResults} setGenre={setGenre} />
-          <div className="m-10 flex flex-col">
-            <h1 className="mb-8 font-bold text-5xl">{genre}</h1>
+          <div className="m-10 ml-0 flex flex-col">
+            <h1 className="mb-8 font-black text-5xl">{genre}</h1>
             <Games games={results}/>
           </div>
         </div>

@@ -35,7 +35,7 @@ export default function Game({ title, img, price }) {
             <span className="text-sm">Added</span>
           </button>
         )}
-        <span className="font-semibold">{title}</span>
+        <span className="font-semibold text-lg">{title}</span>
         <div className="flex justify-between text-[#a0a0a0] text-sm">${price}</div>
           </div>
     </div>

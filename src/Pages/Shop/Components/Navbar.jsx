@@ -5,10 +5,10 @@ export default function Navbar({ setIsCartOpen }) {
     <nav className="h-20 flex justify-between items-center sticky top-0 p-2 bg-[#0F1011]">
       <div className="flex gap-1 items-center ml-4">
         <img src="gamepad.svg" alt="CHANGE" className="w-[42px] h-[42px]"/>
-        <span className="text-3xl font-serif">GGateway</span>
+        <span className="text-3xl font-serif"><span className="font-semibold">GG</span>ateway</span>
       </div>
       <div>
-        <input placeholder="To be implemented..." className="py-1 pl-4 rounded-lg w-80" />
+        <input placeholder="Search | To be implemented..." className="py-1 pl-4 rounded-lg w-80" />
       </div>
       <button onClick={() => setIsCartOpen(true)} className="mr-5">
         <img src="cart.svg" alt="Something" className="h-8 w-8" />
